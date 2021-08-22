@@ -1,0 +1,55 @@
+.main {
+    min-height: 100vh;
+    box-sizing: border-box;
+    background-image: linear-gradient(180deg, aqua, rgb(97, 2, 97));
+
+    div.container {
+        margin-top: calc(50px + 15vh);
+        min-height: 40vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 90vw;
+        background-color: rgb(75, 3, 75);
+        color: white;
+        border-radius: 20px;
+
+        & > div {
+            margin: 10px;
+        }
+
+        form {
+            div {
+                textarea {
+                    width: 80%;
+                    height: 100px;
+                    border: none;
+                    outline: none;
+                    color: white;
+                    background-color: transparent;
+                    border: 2px solid white;
+                    text-align: center;
+                    margin: 20px;
+                    border-radius: 10px;
+                    padding: 10px;
+                }
+            }
+
+            button {
+                width: 150px;
+                height: 50px;
+                border: none;
+                border-radius: 30px;
+                color: white;
+                font-size: 20px;
+                background-image: linear-gradient(90deg, rgb(7, 136, 136), rgb(218, 37, 218));
+                transition: all 0.5s;
+
+                &:hover, &:active {
+                    background-image: linear-gradient(90deg, rgb(218, 37, 218), rgb(7, 136, 136));
+                }
+            }
+        }
+    }
+}

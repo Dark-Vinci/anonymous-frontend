@@ -1,11 +1,13 @@
 import { useReducer, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import Footer from "../components/footer";
 import checkValidity from '../utils/validation';
 import classes from '../styles/login.module.css';
+import {auth} from '../store/action/authCreator';
 
-function Register () {
+function Register (props) {
     const [ enabled, setEnabled ] = useState(false);
     const { push } = useHistory();
 
@@ -48,13 +50,12 @@ function Register () {
     const onSubmitFormHandler = (event) => {
         event.preventDefault();
 
-        const tosend = {
+        const toSend = {
             email: email.value,
             password: password.value
         }
-        console.log(tosend);
 
-        // send to backend 
+        props.onAuth(toSend, push);
     }
 
     const loginButtonHandler = () => {
@@ -75,6 +76,10 @@ function Register () {
                     className={ classes.form }
                 >
                     <div>
+                        { props.err && <p 
+                                style={{ color: 'red', fontWeight: 'bold', fontSize: '23px' }}
+                            >something went wrong</p>
+                        }
                         <label htmlFor="email">Email</label>
                         <input 
                             type="email" 
@@ -113,4 +118,19 @@ function Register () {
     );
 }
 
-export default Register;
+const mapStateToProps = (state) => {
+    return {
+        loading: state.auth.loading,
+        error: state.auth.error
+    }
+} 
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onAuth: (payload, push) => {
+            return dispatch(auth(payload, push))
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register);

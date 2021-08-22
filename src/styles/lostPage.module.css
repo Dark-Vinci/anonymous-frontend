@@ -49,22 +49,39 @@
   margin: 20px;
 }
 
+.container div button.reg {
+  margin-top: 20px;
+  width: 200px;
+  font-size: 20px;
+  height: 50px;
+  background-image: -webkit-gradient(linear, left top, right top, from(aqua), to(#ce08ce));
+  background-image: linear-gradient(90deg, aqua, #ce08ce);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.container div button.reg:active, .container div button.reg:hover {
+  color: #310431;
+  background-color: white;
+}
+
 .container div button {
   margin-top: 20px;
   width: 200px;
   font-size: 20px;
   height: 50px;
-  background-color: purple;
   color: white;
-  border: 2px solid white;
+  border: none;
   border-radius: 30px;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
 
 .container div button:active, .container div button:hover {
-  color: purple;
-  border: none;
+  color: #d606d6;
   background-color: white;
 }
 /*# sourceMappingURL=lostPage.module.css.map */

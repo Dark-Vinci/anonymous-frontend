@@ -20,12 +20,27 @@
         align-items: center;
     
     
-        div, i {
-            padding: 5px;
+        div.icon {
+            width: 50px;
+            height: 20px;
+            margin-right: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: space-between;
+
+            & > div {
+                width: 30px;
+                height: 1px;
+                border: 2px solid rgb(8, 170, 245);
+                padding: 0px;
+                margin-right: 10px;
+            }
         }
     
         div {
             font-size: 20px;
+            padding: 5px;
         }
     }
 }

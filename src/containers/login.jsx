@@ -1,11 +1,13 @@
 import { useState, useReducer } from 'react';
 import { useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import checkValidity from '../utils/validation';
 import Footer from "../components/footer";
 import classes from '../styles/login.module.css';
+import { onLogin } from '../store/action/authCreator';
 
-function Login () {
+function Login ({ login, loading, error }) {
     const [ enabled, setEnabled ] = useState(false);
     const { push } = useHistory();
 
@@ -55,6 +57,7 @@ function Login () {
         console.log(tosend);
 
         // send to backend 
+        login(tosend, push);
     }
 
     const registerButtonHandler = () => {
@@ -113,4 +116,17 @@ function Login () {
     );
 }
 
-export default Login;
+const mapStateToProps = (state) => {
+    return {
+        loading: state.auth.loading,
+        error: state.auth.error
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        login : (payload, push) => dispatch(onLogin(payload, push))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

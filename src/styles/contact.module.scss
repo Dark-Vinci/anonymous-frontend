@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    min-height: 100vh;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-image: linear-gradient(180deg, rgb(243, 31, 155), rgb(44, 1, 44));
+
+    p {
+        margin: 20px;
+        font-size: 18px;
+    }
+
+    div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin: 20px;
+        margin-top: 0px;
+
+        i {
+            margin: 10px;
+        }
+    }
+}
