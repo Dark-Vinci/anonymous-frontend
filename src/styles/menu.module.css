@@ -1,0 +1,37 @@
+.container {
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-image: linear-gradient(150deg, #eb03e3, #740470);
+}
+
+.container ul {
+  width: 100%;
+  margin: 0px;
+  list-style-type: none;
+  padding: 0px;
+  padding: 10px;
+  color: white;
+  font-size: 18px;
+}
+
+.container ul li {
+  width: 100%;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.container ul li:hover {
+  color: purple;
+  background-color: #f2abef;
+}
+/*# sourceMappingURL=menu.module.css.map */

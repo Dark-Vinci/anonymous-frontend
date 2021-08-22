@@ -1,0 +1,28 @@
+.container {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    background-image: linear-gradient(150deg, rgb(235, 3, 227), rgb(116, 4, 112));
+
+    ul {
+        width: 100%;
+        margin: 0px;
+        list-style-type: none;
+        padding: 0px;
+        padding: 10px;
+        color: white;
+        font-size: 18px;
+
+        li {
+            width: 100%;
+            transition: all 0.5s;
+
+            &:hover {
+                color: purple;
+                background-color: rgb(242, 171, 239);
+            }
+        }
+    }
+}

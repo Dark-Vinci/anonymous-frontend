@@ -1,23 +1,42 @@
-import logo from './logo.svg';
+import { Switch, Route } from 'react-router-dom';
+
 import './App.css';
+import LostPage from './components/404page';
+import Home from './components/home';
+import Login from './containers/login';
+import Register from './containers/register';
+import Messages from './containers/message';
+import SendMessages from './containers/sendMessage';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Switch>
+        <Route path='/' exact>
+          <Home />
+        </Route>
+
+        <Route path='/register' exact>
+          <Register />
+        </Route>
+
+        <Route path='/login' exact>
+          <Login />
+        </Route>
+
+        <Route path='/my-messages' exact>
+          <Messages />
+        </Route>
+
+        <Route path='/send-message' exact>
+          <SendMessages />
+        </Route>
+
+        <Route>
+          <LostPage />
+        </Route>
+      </Switch>
     </div>
   );
 }

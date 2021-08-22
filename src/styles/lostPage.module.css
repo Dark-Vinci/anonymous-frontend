@@ -1,0 +1,70 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f51af5), to(#6a07b1));
+  background-image: linear-gradient(180deg, #f51af5, #6a07b1);
+  color: white;
+  font-size: 20px;
+}
+
+.container div {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container div div {
+  width: 80%;
+  margin: 30px;
+  margin: 0px 20px;
+}
+
+.container div div, .container div button {
+  margin: 20px;
+}
+
+.container div button {
+  margin-top: 20px;
+  width: 200px;
+  font-size: 20px;
+  height: 50px;
+  background-color: purple;
+  color: white;
+  border: 2px solid white;
+  border-radius: 30px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.container div button:active, .container div button:hover {
+  color: purple;
+  border: none;
+  background-color: white;
+}
+/*# sourceMappingURL=lostPage.module.css.map */

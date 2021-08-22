@@ -1,0 +1,47 @@
+.container {
+  width: 250px;
+  height: auto;
+  background-color: white;
+  border-radius: 20px;
+  margin: 20px;
+  padding: 20px;
+}
+
+.container div.d, .container h4 {
+  text-align: left;
+}
+
+.container div.p {
+  width: 60px;
+  height: 60px;
+  background-image: -webkit-gradient(linear, left top, right top, from(pink), to(purple));
+  background-image: linear-gradient(90deg, pink, purple);
+  border-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container h4 {
+  font-size: 20px;
+}
+
+.Cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/*# sourceMappingURL=card.module.css.map */

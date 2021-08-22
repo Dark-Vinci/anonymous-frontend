@@ -1,0 +1,58 @@
+.container {
+  margin-top: 50px;
+  width: 100vw;
+  overflow-x: hidden;
+  background-color: #f7edf8;
+}
+
+.container header {
+  padding: 20px;
+  height: 80vh;
+  background-image: linear-gradient(-145deg, #eb03e3, #740470);
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container header h3 {
+  font-size: 30px;
+  text-transform: capitalize;
+}
+
+.container header button {
+  margin-top: 20px;
+  width: 200px;
+  font-size: 20px;
+  height: 50px;
+  color: purple;
+  border: none;
+  border-radius: 30px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.container header button:active, .container header button:hover {
+  color: white;
+  border: 2px solid white;
+  background-color: purple;
+}
+
+.container main {
+  margin: 20px;
+}
+
+.container main h3 {
+  font-size: 25px;
+}
+/*# sourceMappingURL=home.module.css.map */
