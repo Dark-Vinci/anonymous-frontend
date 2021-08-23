@@ -22,19 +22,8 @@ function Header () {
                     <div></div>
                 </div>
             </div>
-            <div className={ classes.menu }
-                style={{ 
-                    // height: opened ? 'auto' : '0px', 
-                    border: '2px solid red',
-                    transition: 'transform 0.9s',
-                    transfrom: opened ? 'translateY(-25px)' : 'translateY(0px)'
-                    // display: 'flex',
-                    // justifyContent: 'center',
-                    // alignItems: 'center'
-                }}
-            >  
+            <div className={ classes.menu }>  
                 { opened && <Menu /> }
-                {/* <Menu /> */}
             </div>
         </div>
     );

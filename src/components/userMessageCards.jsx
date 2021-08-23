@@ -10,9 +10,9 @@ function UserMessageCards ({ data }) {
         >
             { data.map(message => {
                 return <UserMessageCard 
-                    createdAt={ message.createdAt }
-                    message={ message.message }
-                    key={ message.createdAt }
+                    createdAt={ message.date }
+                    message={ message.content }
+                    key={ message._id }
                 />
             })}
         </div>

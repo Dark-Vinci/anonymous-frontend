@@ -6,6 +6,7 @@ function Menu () {
     const menuItems = ['Home', 'Contact', 'Register', 'Login'];
     const { push } = useHistory();
 
+    // function that help to change the url with the name of the nav object
     const clickHandler = (location) => {
         push(location);
     }

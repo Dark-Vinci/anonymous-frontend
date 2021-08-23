@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { connect } from 'react-redux';
+import { AiFillMessage } from 'react-icons/ai'
 
 import Layout from "../components/layout";
 import UserMessageCards from "../components/userMessageCards";
@@ -8,16 +9,22 @@ import { fetch } from '../store/action/message';
 
 
 function Message ({ onFetch, token, messages, loading, error, userId }) {
-    const [ copied, setCopied ] = useState(false)
+    const [ printed, setPrinted ] = useState(false);
+    const [ copied, setCopied ] = useState(false);
+
     useEffect(() => {
         onFetch(token);
-    }, [token, onFetch]);
+        setPrinted(true);
+    }, [token, onFetch]);   
 
     const copyHandler = () => {
-        // the user url;
-        console.log(userId);
-        const url = `http://localhost:2020/api/send/${ userId }`;
+        // generate the users message link
+        const url = `http://localhost:3000/send-message/${ userId }`;
+
+        // copy to clipboard
         navigator.clipboard.writeText(url);
+
+        // to change from [copy] to [copied]
         setCopied(true);
     }
 
@@ -26,8 +33,13 @@ function Message ({ onFetch, token, messages, loading, error, userId }) {
             <Layout>
                 <div className={ classes.container }>
                     <div className={ classes.innercontainer }>
-                        <div>Message[icon]</div>
+                        <div>Message 
+                            <AiFillMessage 
+                                color='white'
+                                fontSize='60px'
+                        /></div>
                         <div>
+                            {/* for generating link for users friends to send messages */}
                             generate your anonymous link 
                             <button 
                                 onClick={copyHandler}
@@ -39,21 +51,24 @@ function Message ({ onFetch, token, messages, loading, error, userId }) {
                         </div>
                         { 
                             loading ?
-                            // !spinner
+                            // change the displayed message if there is an error or 
+                            // data is still loading or data has been succesfully fetched
                                 <h3> loading... </h3> :
                             error ?
                                 <h3 style={{ color: 'red' }}> something went wrong</h3> :
-                                <div>
-                                    { hh().length === 0 ? 
-                                        // messages.length == 0 ?
+                                printed && <div>
+                                    { 
+                                        messages.length === 0 ?
+                                        // the user has no messages yet in the database
                                         <div>No message yet</div> :
+                                        // users messages is one or more, the card of message would be displayed
                                         <UserMessageCards 
-                                            data={ hh() }
-                                            // data = { messages }
+                                            data = { messages }
                                         />
                                     }
                                 </div>
-                        }
+                                
+                            }
                     </div>
                 </div>
             </Layout>
@@ -61,28 +76,8 @@ function Message ({ onFetch, token, messages, loading, error, userId }) {
     )
 }
 
-// dummy
-function hh () {
-    return [
-        {
-            createdAt: '2020',
-            message: 'i wan marry you'
-        },
-        {
-            createdAt: '2021',
-            message: 'i wan marry you, but you too like shakara'
-        }, 
-        {
-            createdAt: '2022',
-            message: 'i wan marry you, but you too like shakara, you go dey alright last last'
-        },
-        {
-            createdAt: '202n',
-            message: 'i wan marry you, but you too like shakara, you go dey alright last last'
-        }
-    ]
-}
 
+// function that get the slice of the needed state from various stores
 const mapStateToProps = state => {
     return {
         token: state.auth.token,
@@ -93,6 +88,7 @@ const mapStateToProps = state => {
     }
 }
 
+// function that dispatch fetching of data in the store
 const mapDispatchToProps = dispatch => {
     return {
         onFetch: (token) => dispatch(fetch(token))

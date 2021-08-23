@@ -5,17 +5,19 @@ import classes from '../styles/home.module.css';
 import Cards from "../components/cards";
 import Layout from "../components/layout";
 import content from '../utils/body';
-
 import MenuContext from '../context/menucontext';
 
 function Home () {
+    const { push } = useHistory();
     const [ menu, setMenu ] = useState(false);
 
+    // handler for opening and cloding the menu bar
     const menuClickHandler = () => {
         setMenu(!menu)
     }
-    const { push } = useHistory();
 
+    // function that handle the register button, it pushes the register page
+    // for the user to register into the app and get started
     const startButtonHandler = () => {
         push('/register');
     }

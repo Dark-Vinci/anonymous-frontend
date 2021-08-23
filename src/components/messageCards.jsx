@@ -1,20 +1,20 @@
-import MessageCard from "./messageCard"
+// import MessageCard from "./messageCard"
 
 
-function MessageCards ({ data }) {
-    return (
-        <div>
-            {
-                data.map(datum => {
-                    return <MessageCard
-                        key = { datum.createdAt }
-                        createdAt={ data.createdAt }
-                        content = { datum.content }
-                    />
-                })
-            }
-        </div>
-    );
-}
+// function MessageCards ({ data }) {
+//     return (
+//         <div>
+//             {
+//                 data.map(datum => {
+//                     return <MessageCard
+//                         key = { datum.content }
+//                         createdAt={ datum.createdAt }
+//                         content = { datum.content }
+//                     />
+//                 })
+//             }
+//         </div>
+//     );
+// }
 
-export default MessageCards;
+// export default MessageCards;

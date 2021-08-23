@@ -63,4 +63,23 @@
   background-image: -webkit-gradient(linear, left top, right top, from(#da25da), to(#078888));
   background-image: linear-gradient(90deg, #da25da, #078888);
 }
+
+.main button {
+  width: 150px;
+  height: 50px;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-size: 20px;
+  background-image: -webkit-gradient(linear, left top, right top, from(#078888), to(#da25da));
+  background-image: linear-gradient(90deg, #078888, #da25da);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  margin: 10px;
+}
+
+.main button:hover, .main button:active {
+  background-image: -webkit-gradient(linear, left top, right top, from(#da25da), to(#078888));
+  background-image: linear-gradient(90deg, #da25da, #078888);
+}
 /*# sourceMappingURL=snedMessage.module.css.map */

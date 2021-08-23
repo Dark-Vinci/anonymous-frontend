@@ -7,7 +7,7 @@ function UserMessageCard ({ message, createdAt }) {
             margin: '10px', padding: '10px', 
             borderRadius: '10px'
         }}>
-            <div>Created at <time>{ createdAt }</time></div>
+            <div style={{ fontSize: '9px' }}>Created at <time>{ createdAt }</time></div>
             <div
                 style={{ textAlign: 'left' }}
             >{ message }</div>

@@ -14,20 +14,13 @@ import Contact from './components/contact';
 
 
 function App({ loggedIn, login }) {
+  // trying to autologin when the components has been printed in the dom
   useEffect(() => {
     login();
   }, [login]);
 
   return (
     <div className="App">
-      {
-        loggedIn && (
-          <Route>
-            <Messages />
-          </Route>
-        )
-      }
-
       <Switch>
         <Route path='/' exact>
           <Home />
@@ -41,14 +34,6 @@ function App({ loggedIn, login }) {
           <Login />
         </Route>
 
-        {
-          loggedIn && (
-            <Route path='/my-messages' exact>
-              <Messages />
-            </Route>
-          )
-        }
-
         <Route path='/send-message/:userId' component= { SendMessages } />
 
         <Route path='/contact' exact>
@@ -59,6 +44,16 @@ function App({ loggedIn, login }) {
           <Home />
         </Route>
 
+        {
+          // to allow only logged in user to be redirected to 
+          // their messages page when any unkown part of the url is visited
+          loggedIn && ( 
+            <Route>
+              <Messages />
+            </Route>
+          )
+        } 
+
         <Route>
           <LostPage />
         </Route>
@@ -67,12 +62,15 @@ function App({ loggedIn, login }) {
   );
 }
 
+// function that check if the user is logged in by comapring
+// if the auth token in the store is not an empty string
 const mapStateToProps = (state) => {
   return {  
     loggedIn: state.auth.token !== ''
   }
 }
 
+// function that help to dispatch auto login
 const mapDispatchToProps = (dispatch) => {
   return {
     login: () => dispatch(autoLogin())

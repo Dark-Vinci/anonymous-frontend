@@ -7,15 +7,21 @@ import Footer from "../components/footer";
 import classes from '../styles/login.module.css';
 import { onLogin } from '../store/action/authCreator';
 
-function Login ({ login, loading, error }) {
+
+// , loading, error, loggedIn 
+function Login ({ login }) {
     const [ enabled, setEnabled ] = useState(false);
     const { push } = useHistory();
 
+    // email change reucer function
     const emailReducer = ( state, event ) => {
+        // requirement for a valid email input
         const rules = {
             required: true,
             isEmail: true
         }
+
+        // check if the email input is valid
         const validity = checkValidity(event.target.value, rules);
 
         return {
@@ -25,12 +31,16 @@ function Login ({ login, loading, error }) {
         }
     }
 
+    // password change reducer
     const passwordReducer = ( state, event ) => {
+        // requirement for a valid password
         const rules = {
             required: true,
             minLength: 6,
             maxLength: 30
         }
+
+        // check if the input is valid
         const validity = checkValidity(event.target.value, rules);
 
         return {
@@ -39,27 +49,30 @@ function Login ({ login, loading, error }) {
             valid: validity
         }
     }
+
+    // setting the email and password reducer with useReducer
     const [ email, emailDispatch ] = useReducer(emailReducer, { value: '', valid: false });
     const [ password, passwordDispatch ] = useReducer(passwordReducer, { value: '', valid: false });
 
+    // function that checks is the button should be enabled
     const buttonChangeHandler = () => {
         const extracted = email.valid && password.valid;
         setEnabled(extracted);
     }
 
+    // function that is called when the forms submit button is clicked
     const onSubmitFormHandler = (event) => {
         event.preventDefault();
 
-        const tosend = {
-            email: email.value,
-            password: password.value
-        }
-        console.log(tosend);
+        // data to be sent
+        const tosend = { email: email.value, password: password.value }
 
-        // send to backend 
+        // send to backend, push is also passed so that when the login 
+        // is successful, the user should be redirected to messages page
         login(tosend, push);
     }
 
+    // handler for redirecting the user to the register page
     const registerButtonHandler = () => {
         push('/register');
     }
@@ -110,19 +123,21 @@ function Login ({ login, loading, error }) {
 
                 <div>Dont have an account? <button onClick={ registerButtonHandler }>register</button></div>
             </div>
-
             <Footer />
         </div>
     );
 }
 
+// fucntion that helps to get needed slices of states from the store
 const mapStateToProps = (state) => {
     return {
         loading: state.auth.loading,
-        error: state.auth.error
+        error: state.auth.error,
+        loggedIn: state.auth.token !== ''
     }
 }
 
+// function that help dispatch loging in of the user
 const mapDispatchToProps = (dispatch) => {
     return {
         login : (payload, push) => dispatch(onLogin(payload, push))
