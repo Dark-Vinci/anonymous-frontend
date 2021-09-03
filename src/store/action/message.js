@@ -32,9 +32,11 @@ async function fetchMessage (dispatch, token) {
                 'x-auth-token': token
             }
         }); 
+        // console.log(response)
 
         // data transform
-        const messages = response.data;  
+        // .data.user._id
+        const messages = response.data.data;  
         // success fetch dispatcher
         dispatch(fetchSuccess(messages));
     } catch (ex) {
