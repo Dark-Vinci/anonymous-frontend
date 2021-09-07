@@ -91,10 +91,10 @@ function Login ({ login }) {
                     className={ classes.form }
                 >
                     <div>
-                        <label>your email</label>
+                        {/* <label>your email</label> */}
                         <input 
                             type="email" 
-                            placeholder='johnDoe@gmail.com'
+                            placeholder='email: johnDoe@gmail.com'
                             value={ email.value }
                             onChange= { (event) => {
                                 emailDispatch(event);
@@ -104,7 +104,7 @@ function Login ({ login }) {
                     </div>
 
                     <div>
-                        <label htmlFor="password">your password</label>
+                        {/* <label htmlFor="password">your password</label> */}
                         <input 
                             type="password" 
                             value={ password.value }

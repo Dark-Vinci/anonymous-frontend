@@ -1,9 +1,9 @@
 import Card from "./card"
-import classes from '../styles/card.module.css'
+import classes from '../styles/cards.module.css'
 
 function Cards ({ data }) {
     return (
-        <div className={ classes.Cards }>
+        <div className={ classes.container }>
             {
                 data.map(datum => {
                     return <Card

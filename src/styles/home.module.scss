@@ -8,6 +8,13 @@ div.main {
     overflow-x: hidden;
     background-color: rgb(247, 237, 248);
 
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
     header {
         padding: 20px;
         height: 80vh;

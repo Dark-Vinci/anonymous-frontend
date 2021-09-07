@@ -94,7 +94,7 @@ function Register ({ onAuth, error }) {
                                 style={{ color: 'red', fontWeight: 'bold', fontSize: '23px' }}
                             >something went wrong</p>
                         }
-                        <label htmlFor="email">Email</label>
+                        {/* <label htmlFor="email">Email</label> */}
                         <input 
                             type="email" 
                             placeholder='johnDoe@gmail.com'
@@ -107,7 +107,7 @@ function Register ({ onAuth, error }) {
                     </div>
 
                     <div>
-                        <label htmlFor="password">Password</label>
+                        {/* <label htmlFor="password">Password</label> */}
                         <input 
                             type="password" 
                             placeholder='Your password'

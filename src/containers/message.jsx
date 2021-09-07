@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { connect } from 'react-redux';
-import { AiFillMessage } from 'react-icons/ai'
+import { AiFillMessage } from 'react-icons/ai';
 
 import Layout from "../components/layout";
 import UserMessageCards from "../components/userMessageCards";
