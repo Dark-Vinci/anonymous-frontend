@@ -19,7 +19,10 @@ function Message ({ onFetch, token, messages, loading, error, userId }) {
 
     const copyHandler = () => {
         // generate the users message link
-        const url = `http://localhost:3000/send-message/${ userId }`;
+        // const url = `http://localhost:3000/send-message/${ userId }`;
+
+        // !here we go 
+        const url = `https://Dark-Vinci.github.io/anonymous-frontend/send-message/${ userId }`
 
         // copy to clipboard
         navigator.clipboard.writeText(url);

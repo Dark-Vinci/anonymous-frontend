@@ -27,20 +27,20 @@ export const fetchSuccess = (payload) => {
 async function fetchMessage (dispatch, token) {
     try {
         // reach out to the web with axios
-        const response = await axios.get('http://localhost:2020/api/user/my-messages', {
-            headers: {
-                'x-auth-token': token
-            }
-        }); 
-        // console.log(response)
+        // const response = await axios.get('http://localhost:2020/api/user/my-messages', {
+        //     headers: { 'x-auth-token': token }
+        // }); 
+
+        // ! here we go
+        const response = await axios.get(`https://proj-ano-tex-v1w9.herokuapp.com/api/user/my-messages`, {
+            headers: { 'x-auth-token': token }
+        });
 
         // data transform
-        // .data.user._id
         const messages = response.data.data;  
         // success fetch dispatcher
         dispatch(fetchSuccess(messages));
     } catch (ex) {
-        // console.log(ex)
         // failed fetching of users messages
         dispatch(fetchFail());
     }

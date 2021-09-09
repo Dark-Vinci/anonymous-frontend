@@ -49,11 +49,6 @@ function Home () {
                             <Cards 
                                 data = { content() }
                             />
-                            {/* <div className={ classes.card }>
-                                <Cards 
-                                    data = { content() }
-                                />
-                            </div> */}
                         </main>
 
                         <main>

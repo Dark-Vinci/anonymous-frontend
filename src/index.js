@@ -24,7 +24,7 @@ const store = createStore(combinedReducer, composeEnhancer(applyMiddleware(thunk
 const app = (
   <React.StrictMode>
     <Provider store={store}>
-      <Router>
+      <Router basename='/anonymous-frontend'>
         <App />
       </Router>
     </Provider>

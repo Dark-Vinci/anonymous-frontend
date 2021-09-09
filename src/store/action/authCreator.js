@@ -79,7 +79,10 @@ export const countDown = (time) => {
 async function register (load, dispatch, push) {
     try {
         // post to the server
-        const response = await axios.post('http://localhost:2020/api/register', load);
+        // const response = await axios.post('http://localhost:2020/api/register', load);
+
+         // !here we go
+        const response = await axios.post(`https://proj-ano-tex-v1w9.herokuapp.com/api/register`, load);
 
         // set token, id and expiration date
         const token = response.headers['x-auth-token'];
@@ -111,7 +114,10 @@ async function register (load, dispatch, push) {
 async function login (load, dispatch, push) {
     try {
         // post login request to the server
-        const response = await axios.post('http://localhost:2020/api/login', load);
+        // const response = await axios.post('http://localhost:2020/api/login', load);
+
+        // !here we go
+        const response = await axios.post(`https://proj-ano-tex-v1w9.herokuapp.com/api/login`, load);
 
         // set token, id, expiresIn
         const token = response.headers['x-auth-token'];

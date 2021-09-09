@@ -27,9 +27,11 @@ async function sendHelper ( payload, dispatch ) {
     try {
         // sending the message
         const message = { content: payload.message }
-        const response = await axios.post(`http://localhost:2020/api/user/send-message/${ payload.userId }`, message);
+        // await axios.post(`http://localhost:2020/api/user/send-message/${ payload.userId }`, message);
 
-        console.log(response);
+        // ! here we go 
+        const response = await axios.post(`https://proj-ano-tex-v1w9.herokuapp.com/api/user/send-message/${ payload.userId }`, message);
+
         // successful sending
         dispatch(sendSuccess());
     } catch (ex) {
