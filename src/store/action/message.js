@@ -32,6 +32,7 @@ async function fetchMessage (dispatch, token) {
         // }); 
 
         // ! here we go
+        // console.log(token);
         const response = await axios.get(`https://proj-ano-tex-v1w9.herokuapp.com/api/user/my-messages`, {
             headers: { 'x-auth-token': token }
         });

@@ -67,11 +67,24 @@ export const logout = () => {
 }
 
 // expiry logout timout dispatcher
+// export const countDown = (time) => {
+//     console.log('time', time);
+//     // console.log(dispatch);
+//     const realTime = time * 1000
+
+//     return dispatch => {
+//         setTimeout(() => {
+//             console.log('here')
+//             dispatch(logout());
+//         }, realTime);
+//     }
+// }
+
 export const countDown = (time) => {
     return dispatch => {
         setTimeout(() => {
             dispatch(logout());
-        }, time * 1000);
+        }, time * 1000000);
     }
 }
 
@@ -89,6 +102,9 @@ async function register (load, dispatch, push) {
         const id = response.data.user._id;
         const expiresIn = +response.data.expiresIn;
 
+        console.log(expiresIn);
+        // console.log(id)
+
         // calculate the expiration date in milliseconds
         const expiryDate = (new Date()).getTime() + expiresIn * 1000;
 
@@ -101,7 +117,7 @@ async function register (load, dispatch, push) {
 
         // dispatch authenication success and logout countdown
         dispatch(authSuccess(payload));
-        dispatch(countDown(expiresIn));
+        // dispatch(countDown(expiresIn));
 
         // redirect to /my-messages
         push('/my-messages');
@@ -127,6 +143,7 @@ async function login (load, dispatch, push) {
         // set the expiration date in milliseconds
         const expiryDate = (new Date()).getTime() + expiresIn * 1000;
 
+console.log('expires in', expiresIn);
         // payload for successful login
         const payload = { id, token }
 
@@ -173,14 +190,17 @@ export const autoLogin = () => {
 
         if (!token || !id) {
             // dispatch logout if theres is no token or id in the localstorage
+            console.log('if1')
             dispatch(logout());
         } else {
             if (dateInSeconds < (new Date().getTime())) {
                 // dispatch logout if the token has expired
+                console.log('if2')
                 dispatch(logout());
             } else {
                 // get the time left in milliseconds
                 const timeLeft = dateInSeconds - (new Date().getTime());
+                console.log('if3')
 
                 const payload = { id, token }
 
