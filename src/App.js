@@ -16,9 +16,7 @@ import Contact from './components/contact';
 function App({ loggedIn, login }) {
   // trying to autologin when the components has been printed in the dom
 
-  // useEffect(() => {
-    login();
-  // }, [login]);
+  login();
 
   return (
     <div className="App">
@@ -48,23 +46,15 @@ function App({ loggedIn, login }) {
         {
           // to allow only logged in user to be redirected to 
           // their messages page when any unkown part of the url is visited
-          // loggedIn ? ( 
-          //   <Route path='/my-messages'>
-          //     <Messages />
-          //   </Route>
-          // ): null
 
-           <Route path='/my-messages' component= { Messages } />
+           loggedIn ? 
+            <Route path='/my-messages' component= { Messages } />: null
         } 
-
-        {/* <Route>
-          <LostPage />
-        </Route> */}
       </Switch>
 
-      {/* <Route>
+        <Route>
           <LostPage />
-        </Route> */}
+        </Route>
     </div>
   );
 }
